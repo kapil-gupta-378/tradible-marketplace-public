@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  :root {
+    @apply text-neutral-100 dark:text-neutral-800;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+
+  /* add banner css */
+  .banner_carousel_slider .react-multiple-carousel__arrow,
+  .upcoming_card .react-multiple-carousel__arrow,
+  .recently_viewed .react-multiple-carousel__arrow {
+    @apply z-[1] rounded-lg bg-white dark:bg-custom-light-300 dark:hover:border dark:hover:border-neutral-light-400 dark:hover:bg-custom-light-800;
+  }
+  .banner_carousel_slider .react-multiple-carousel__arrow:hover,
+  .upcoming_card .react-multiple-carousel__arrow:hover,
+  .recently_viewed .react-multiple-carousel__arrow:hover {
+    @apply bg-white;
+  }
+  .banner_carousel_slider .react-multiple-carousel__arrow:active,
+  .upcoming_card .react-multiple-carousel__arrow:active,
+  .recently_viewed .react-multiple-carousel__arrow:active {
+    @apply scale-125;
+  }
+  .banner_carousel_slider .react-multiple-carousel__arrow:before,
+  .upcoming_card .react-multiple-carousel__arrow:before,
+  .recently_viewed .react-multiple-carousel__arrow:before {
+    @apply text-sm font-black	leading-[17px]	text-black dark:text-white;
+  }
+  .banner_carousel_slider .react-multi-carousel-dot button,
+  .heighlighted_card .react-multi-carousel-dot button,
+  .upcoming_card .react-multi-carousel-dot button {
+    @apply m-0 h-[2px] w-[50px] rounded-none  border-0 bg-neutral-700 shadow-[0_2px_8px_rgba(0,0,0,0.08)] dark:bg-neutral-light-600 !important;
+  }
+  .banner_carousel_slider .react-multi-carousel-dot:first-child button,
+  .heighlighted_card .react-multi-carousel-dot:first-child button,
+  .upcoming_card .react-multi-carousel-dot:first-child button {
+    @apply !rounded-l-md;
+  }
+  .banner_carousel_slider .react-multi-carousel-dot:last-child button,
+  .heighlighted_card .react-multi-carousel-dot:last-child button,
+  .upcoming_card .react-multi-carousel-dot--active button {
+    @apply !rounded-r-md;
+  }
+  .banner_carousel_slider .react-multi-carousel-dot--active button,
+  .heighlighted_card .react-multi-carousel-dot--active button,
+  .upcoming_card .react-multi-carousel-dot--active button {
+    @apply rounded-md !bg-neutral-400 dark:!bg-neutral-light-300 !important;
+  }
+  .banner_carousel_slider .react-multiple-carousel__arrow,
+  .upcoming_card .react-multiple-carousel__arrow,
+  .recently_viewed .react-multiple-carousel__arrow {
+    @apply z-[1] h-[40px] w-[40px] rounded-[12px] shadow-lg;
+  }
+  .banner_carousel_slider .banner_slide_card {
+    @apply mb-[22px];
+  }
+  .recently_viewed .banner_slide_card {
+    @apply mb-[22px];
+  }
+  .banner_carousel_slider .react-multiple-carousel__arrow--left,
+  .recently_viewed .react-multiple-carousel__arrow--left,
+  .upcoming_card .react-multiple-carousel__arrow--left {
+    @apply left-[3%] lmd:left-[1%];
+  }
+  .banner_carousel_slider .react-multiple-carousel__arrow--right,
+  .recently_viewed .react-multiple-carousel__arrow--right,
+  .upcoming_card .react-multiple-carousel__arrow--right {
+    @apply right-[3%] lmd:right-[1%];
+  }
+  .banner_carousel_slider .react-multi-carousel-dot-list {
+    @apply -bottom-4;
+  }
+
+  /* upcoming cards */
+
+  .upcoming_card .banner_slide_card {
+    @apply mb-[22px];
+  }
+  .upcoming_card .react-multi-carousel-dot-list {
+    display: none;
+  }
+  .recently_viewed .react-multi-carousel-dot-list {
+    display: none;
+  }
+  .recently_viewed .react-multiple-carousel__arrow {
+    @apply z-[1] rounded-md bg-white dark:bg-custom-light-300;
+  }
+  .heighlighted_card .react-multi-carousel-dot {
+    @apply !mt-5;
+  }
+  .heighlighted_card .react-multiple-carousel__arrow {
+    /* display: none; */
+  }
+  .heighlighted_card .react-multiple-carousel__arrow--right {
+    /* display: none; */
+  }
+  .heighlighted_card .indicator_wrp {
+    bottom: -30px;
+  }
+
+  @media (max-width: 767px) {
+    .heighlighted_card .indicator_wrp {
+      display: none !important ;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .banner_carousel_slider .react-multiple-carousel__arrow {
+      @apply hidden;
+    }
+    .banner_carousel_slider .banner_slide_card {
+      @apply m-0;
+    }
+
+    .hotCollection_card_wrp {
+      @apply !w-full !flex-col !items-center;
+    }
+    .hotCollection_card_duration {
+      @apply !w-full;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .heighlighted_card .indicator_wrp {
+      display: none !important ;
+    }
+    .dataTable {
+      @apply w-[1200px];
+    }
+    .dataTable-wrp {
+      @apply overflow-x-auto;
+    }
+  }
+}
+
+/* end cards */
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-[1440px] px-4 xl:px-8;
+  }
+  body .main {
+    @apply duration-300 !important;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+  }
+  body:has(.cart_wrp) .main {
+    /* @apply duration-300 xlg:mr-[370px]  !important; */
+  }
+
+  body:has(.filter-wrp) .dataTable,
+  body:has(.cart_wrp) .dataTable {
+    @apply w-[1200px];
+  }
+  body:has(.filter-wrp) .dataTable-wrp,
+  body:has(.cart_wrp) .dataTable-wrp {
+    @apply overflow-x-auto;
+  }
+
+  .profile-cover input[type='file'],
+  .profile-image input[type='file'] {
+    opacity: 0;
+  }
+}
+
+.slide-in-right::-webkit-scrollbar {
+  @apply hidden;
+}
+.cart-Item-list::-webkit-scrollbar,
+.search-item::-webkit-scrollbar,
+.explore-nav-menu::-webkit-scrollbar,
+.organization-card::-webkit-scrollbar {
+  @apply w-0;
+}
+
+.hotCollection-multi-image::-webkit-scrollbar,
+.filter-dropdown::-webkit-scrollbar,
+.dataTable-wrp::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+.hotCollection-multi-image::-webkit-scrollbar-track,
+.filter-dropdown::-webkit-scrollbar-track,
+.dataTable-wrp::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.hotCollection-multi-image::-webkit-scrollbar-thumb,
+.filter-dropdown::-webkit-scrollbar-thumb,
+.dataTable-wrp::-webkit-scrollbar-thumb {
+  @apply rounded-md bg-[#16161a4d] dark:bg-[#ffffff4d];
+}
+
+@keyframes fixedHeader {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.alert-dot::before {
+  transform: translate(0, 0) rotate(0) skew(0) skewY(0) scaleX(1) scaleY(1);
+  border-radius: 50%;
+  content: '';
+  animation: flashing 2.5s ease-in-out infinite;
+}
+
+table thead {
+  top: 0;
+  position: sticky;
+  z-index: 10;
+}
+/* table thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 20;
+  width: 20%;
+} */
+table tbody tr,
+table thead tr {
+  position: relative;
+}
+
+table tbody tr td {
+  padding: 0px;
+}
+
+table tbody tr td > a,
+table tbody tr td > div {
+  @apply block h-20 py-2;
+}
+table tbody tr:hover td > a {
+  @apply bg-neutral-800 dark:bg-neutral-light-800;
+  transition: 0.5s;
+}
+table tbody th {
+  position: sticky;
+  left: 0;
+}
+
+table tbody tr td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+table tbody tr td:first-child {
+  padding-left: 5px;
+}
+
+table tbody tr td:first-child > a {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+table tbody tr td:last-child > a {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+table tbody tr td:last-child {
+  padding-right: 5px;
+}
+table thead th:first-child > a {
+  @apply justify-center;
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+    visibility: visible;
+  }
+}
+
+@keyframes fadeleftReverse {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+    visibility: hidden;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+    visibility: visible;
+    display: unset;
+  }
+}
+
+@keyframes fadeRightReverse {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+    visibility: visible;
+    /* display: unset; */
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+    visibility: hidden;
+    display: none;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translatey(20px);
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    transform: translatey(0px);
+    visibility: visible;
+  }
+}
+@keyframes fadeUpReverse {
+  0% {
+    opacity: 1;
+    transform: translatey(0px);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translatey(20px);
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translatey(-20px);
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    transform: translatey(0px);
+    visibility: visible;
+  }
+}
+@keyframes fadeDownReverse {
+  0% {
+    opacity: 1;
+    transform: translatey(0px);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translatey(-20px);
+    visibility: hidden;
+  }
+}
+
+@keyframes ZoomIn {
+  0% {
+    opacity: 0;
+    transform: translatez(-20px);
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    transform: translatez(0px);
+    visibility: visible;
+  }
+}
+@keyframes ZoomInReverse {
+  0% {
+    opacity: 1;
+    transform: translatez(0px);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translatez(-20px);
+    visibility: hidden;
+  }
+}
+
+.transition-hover {
+  @apply transition-all delay-0 duration-300 ease-in-out;
+}
+
+@keyframes customAnimation {
+  0% {
+    /* Starting styles */
+    /* You can specify any desired styles here */
+  }
+  100% {
+    /* Ending styles */
+    /* You can specify any desired styles here */
+  }
+}
+
+.custom-label input:checked + svg {
+  display: block !important;
+}
+
+.card-transition {
+  transition: 0.25s ease-in-out 0s, transform 0.25s ease 0s;
+}
+
+.costume_table:last-child > td {
+  padding-bottom: 20px;
+}
+
+.sellerListScroll::-webkit-scrollbar {
+  width: 2px;
+}
+
+.sellerListScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sellerListScroll::-webkit-scrollbar-thumb {
+  background: #888;
+}

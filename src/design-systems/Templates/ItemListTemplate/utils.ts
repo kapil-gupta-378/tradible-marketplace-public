@@ -1,0 +1,61 @@
+export const data = [
+  {
+    id: 1,
+    item: 'Widget A',
+    floor: '121.32',
+    bought_for: '10.00',
+    fee: '1.00',
+    amount: '2',
+    type: 'week',
+    price: '12.00',
+  },
+  {
+    id: 2,
+    item: 'Widget B',
+    floor: '324.23',
+    bought_for: '15.00',
+    fee: '1.50',
+    amount: '2',
+    type: 'month',
+    price: '16.50',
+  },
+  {
+    id: 3,
+    item: 'Widget C',
+    floor: '23.23',
+    bought_for: '20.00',
+    fee: '2.00',
+    amount: '2',
+    type: 'month',
+    price: '22.00',
+  },
+  {
+    id: 4,
+    item: 'Widget D',
+    floor: '246.22',
+    bought_for: '30.00',
+    fee: '3.00',
+    amount: '2',
+    type: 'week',
+    price: '33.00',
+  },
+]
+
+export const delivery_data = [
+  {
+    id: 1,
+    item: 'Sample Item 1',
+    price: 100,
+    fee: '10',
+    delivery_type: 'Express',
+    delivery_fee: 5.0,
+  },
+  {
+    id: 2,
+    item: 'Sample Item 2',
+    price: 75,
+    fee: '5',
+    delivery_type: 'Standard',
+    delivery_fee: 3.0,
+  },
+]
